@@ -1,7 +1,7 @@
 import client from '../plugins/contentful';
 
 export const state = () => ({
-    relatedPosts: []
+  relatedPosts: []
 })
 
 export const mutations = {
@@ -11,11 +11,12 @@ export const mutations = {
 }
 
 export const actions = {
-  async getPosts({
+  async getRelatedPosts({
     commit
   }) {
     const response = await client.getEntries({
       content_type: 'blogPost',
+      //'fields.tags[in]': 'databases,maths,coding,programming,science',
       order: '-sys.createdAt'
     });
     if (response.items.length > 0) {

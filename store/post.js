@@ -21,7 +21,8 @@ export const actions = {
     commit('setLoading', true);
     const response = await client.getEntries({
       content_type: 'blogPost',
-      'fields.slug': slug
+      'fields.slug': slug,
+      
 
     });
     commit('setCurrentPost', response.items[0]);

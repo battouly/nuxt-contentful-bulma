@@ -32,7 +32,7 @@ module.exports = {
   loading: {
     color: '#fff'
   },
-  modules: ['@nuxtjs/dotenv', '@nuxtjs/markdownit', '@nuxtjs/bulma', ['@nuxtjs/pwa', {
+  modules: ['@nuxtjs/dotenv', '@nuxtjs/markdownit', '@nuxtjs/bulma', '@nuxtjs/font-awesome', ['@nuxtjs/pwa', {
     icon: false
   }]],
   markdownit: {
@@ -47,6 +47,9 @@ module.exports = {
   /*
    ** Build configuration
    */
+  plugins: [{
+    src: '~plugins/social.js'
+  }, ],
   build: {
     postcss: {
       plugins: {
@@ -100,11 +103,14 @@ module.exports = {
       });
 
       return client.getEntries({
-        content_type: 'blogPost'
+        content_type: 'blogPost',
+
+        'fields.tags[in]': 'entry.fields.tags'
       }).then((response) => {
         return response.items.map(entry => {
           return {
             route: entry.fields.slug,
+            imageURL: 'https:' + entry.fields.file.fields.file.url,
             payload: entry
           };
         });

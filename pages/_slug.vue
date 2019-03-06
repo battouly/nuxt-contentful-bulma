@@ -18,31 +18,54 @@
             <div class="card article">
               <div class="card-content">
                 <div class="media">
-                  <div class="media-center">
-                    <img src="../static/daria.jpg" class="author-image" alt="Placeholder image">
-                  </div>
                   <div v-if="!isLoading" class="media-content has-text-centered">
                     <p class="title article-title">{{ currentPost.fields.title }} 🔱</p>
                     <p class="subtitle is-6 article-subtitle">
-                      <a href="#">
+                      <!-- <a href="#">
                         by @{{ currentPost.fields.name
                         }}
-                      </a>
-                      on {{ (new Date(currentPost.sys.updatedAt)).toDateString() }}
+                      </a>-->
+                      {{ (new Date(currentPost.sys.updatedAt)).toDateString() }}
                     </p>
+                    <!-- <p class="subtitle is-8 article-subtitle">
+                      <a href="#">Tags:</a>
+                      {{ (currentPost.fields.tags).toString() }}
+                                 <p>{{ currentPost.fields.file.fields.file.url }}</p>         
+                    </p>-->
                   </div>
                 </div>
-                <div class="content article-body has-text-justified" v-html="$md.render(currentPost.fields.content)"></div>
+                <div
+                  class="content article-body has-text-justified"
+                  v-html="$md.render(currentPost.fields.content)"
+                ></div>
+                <div class="content has-text-centered">
+                <div class="soc">
+                    <social-sharing url="https://kidocode.com/" inline-template>
+                      <div>
+                        <network network="facebook">
+                          <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                        </network>
+                        <network network="twitter">
+                          <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                        </network>
+                        <network network="linkedin">
+                          <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                        </network>
+                        <!-- and the others networs tag pasted from the readm.md -->
+                      </div>
+                    </social-sharing>
+                </div>
+                </div>
               </div>
             </div>
           </div>
-<!-- start of relatedPosts column -->
+          <!-- start of relatedPosts column -->
           <div class="column is-4">
             <div class="card article">
               <div class="card-content">
                 <div class="media">
                   <div class="media-content">
-                    <p class="title article-title">Other Articles</p>
+                    <p class="title article-title">Related Articles</p>
                     <nuxt-link
                       v-for="(post, index) in relatedPosts"
                       :key="index"
@@ -55,8 +78,9 @@
               </div>
             </div>
           </div>
-          <!-- End of relatedPosts column -->          
+          <!-- End of relatedPosts column -->
         </div>
+
         <!-- END ARTICLE -->
       </div>
     </section>
@@ -79,7 +103,9 @@ export default {
   },
   async fetch({ store, params }) {
     await store.dispatch("post/getPostBySlug", params.slug);
-    await store.dispatch("relatedPosts/getPosts", params.slug);
+    if (store.state.post.currentPost.slug !== params.slug) {
+      await store.dispatch("relatedPosts/getRelatedPosts", params.slug);
+    }
   }
 };
 </script>

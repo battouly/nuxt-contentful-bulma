@@ -2,13 +2,16 @@
   <div>
     <TheNavBar/>
     <nuxt/>
+    <Footer></Footer>
   </div>
 </template>
 <script>
 import TheNavBar from "@/components/TheNavBar.vue";
+import Footer from "~/components/Footer.vue";
 export default {
   components: {
-    TheNavBar
+    TheNavBar,
+    Footer
   }
 };
 </script>
