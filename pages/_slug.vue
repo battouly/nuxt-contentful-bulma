@@ -42,7 +42,7 @@
                 <div class="content has-text-centered">
                   <div class="soc">
                     <social-sharing
-                      url="https://pedantic-tesla-f3f399.netlify.com/"
+                      url="https://kblog-kidocode.netlify.com/"
                       title="The kidocode Blog"
                       description="Read about science and technology from the yougest in the field coached by expert in the field."
                       quote="Kidocode is the itech house for yougsters."
