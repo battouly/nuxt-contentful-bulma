@@ -6,7 +6,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'knuxt',
+    title: 'kidocode blog',
     meta: [{
         charset: 'utf-8'
       },
@@ -17,7 +17,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Nuxt.js project'
+        content: 'Read about science and technology from the youngest in the field coached by expert in the field.'
       }
     ],
     link: [{

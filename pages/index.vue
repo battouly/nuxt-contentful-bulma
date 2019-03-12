@@ -5,6 +5,7 @@
     </section>
     <br>
     <div class="container">
+
       <p class="title article-title">Latest {{posts.length}} Articles</p>
       <br>
       <div class="row columns is-multiline">
@@ -16,11 +17,11 @@
         >
           <!-- Staff -->
           <div class="card">
-            <div class="card-image">
+            <!-- <div class="card-image">
               <figure class="image">
                 <img src="https://source.unsplash.com/KgjcndVr7tU" alt="Image">
               </figure>
-            </div>
+            </div> -->
             <div class="card-content">
               <div class="media">
                 <!-- <div class="media-left">
@@ -49,6 +50,14 @@
 import Logo from "~/components/Logo.vue";
 
 export default {
+    head () {
+    return {
+      title: 'Posts - kidocode blog',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Latest articles of our blog. ' }
+      ]
+    }
+  },
   components: {
     Logo
   },

@@ -18,7 +18,7 @@ export const actions = {
       content_type: 'blogPost',
       order: '-sys.createdAt',
       skip: 0,
-      limit: 3
+      //limit: 3 
     });
     if (response.items.length > 0) {
       commit('setPosts', response.items);

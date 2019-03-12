@@ -16,7 +16,7 @@ export const actions = {
   }) {
     const response = await client.getEntries({
       content_type: 'blogPost',
-      //'fields.tags[in]': 'databases,maths,coding,programming,science',
+      'fields.tags[in]': 'databases,maths,coding,programming,science,database,ai,robotic',
       order: '-sys.createdAt'
     });
     if (response.items.length > 0) {
