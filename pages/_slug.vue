@@ -44,7 +44,7 @@
                     <social-sharing
                       url="https://kblog-kidocode.netlify.com/"
                       title="The kidocode Blog"
-                      description="Read about science and technology from the yougest in the field coached by expert in the field."
+                      description="Read about science and technology from the youngests in the field coached by experts in the field."
                       quote="Kidocode is the itech house for yougsters."
                       hashtags="robotic,javascript,coding"
                       twitter-user="kidocode"
