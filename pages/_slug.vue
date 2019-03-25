@@ -42,7 +42,7 @@
                 <div class="content has-text-centered">
                   <div class="soc">
                     <social-sharing
-                      :url="'https://kblog-kidocode.netlify.com'+url"
+                      :url="'https://bata1.herokuapp.com'+url"
                       title="The kidocode Blog"
                       description="Read about science and technology from the youngests in the field coached by experts in the field."
                       quote="Kidocode is the itech house for yougsters."
