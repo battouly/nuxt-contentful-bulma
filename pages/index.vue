@@ -5,7 +5,6 @@
     </section>
     <br>
     <div class="container">
-
       <p class="title article-title">Latest {{posts.length}} Articles</p>
       <br>
       <div class="row columns is-multiline">
@@ -21,7 +20,7 @@
               <figure class="image">
                 <img src="https://source.unsplash.com/KgjcndVr7tU" alt="Image">
               </figure>
-            </div> -->
+            </div>-->
             <div class="card-content">
               <div class="media">
                 <!-- <div class="media-left">
@@ -32,7 +31,6 @@
                 <div class="media-content">
                   <p class="title is-4 no-padding">{{ post.fields.title }}</p>
                 </div>
-                
               </div>
               <div class="title is-7 no-padding">{{ (new Date(post.sys.updatedAt)).toDateString() }}</div>
               <div class="content">{{ post.fields.description }}</div>
@@ -50,13 +48,18 @@
 import Logo from "~/components/Logo.vue";
 
 export default {
-    head () {
+  head() {
     return {
-      title: 'Posts - kidocode blog',
+      title: "Posts - kidocode blog",
       meta: [
-        { hid: 'description', name: 'description', content: 'Latest articles of our blog. ' }
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Read about science and technology from the youngests in the field coached by experts in the field. "
+        }
       ]
-    }
+    };
   },
   components: {
     Logo

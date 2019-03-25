@@ -42,7 +42,7 @@
                 <div class="content has-text-centered">
                   <div class="soc">
                     <social-sharing
-                      url="https://kblog-kidocode.netlify.com/"
+                      :url="'https://kblog-kidocode.netlify.com'+url"
                       title="The kidocode Blog"
                       description="Read about science and technology from the youngests in the field coached by experts in the field."
                       quote="Kidocode is the itech house for yougsters."
@@ -110,7 +110,11 @@ export default {
       return this.$store.state.post.isLoading;
     },
     relatedPosts() {
-      return this.$store.state.relatedPosts.relatedPosts;
+      return this.$store.state.relatedPosts.relatedPosts.filter(
+        e => e.fields.title !== this.currentPost.fields.title
+      );
+      //console.log(a, this.currentPost.fields.title);
+      //return this.$store.state.relatedPosts.relatedPosts;
     }
   },
   async fetch({ store, params }) {
@@ -118,6 +122,14 @@ export default {
     if (store.state.post.currentPost.slug !== params.slug) {
       await store.dispatch("relatedPosts/getRelatedPosts", params.slug);
     }
+  },
+  data() {
+    return {
+      url: ""
+    };
+  },
+  created() {
+    this.url = this.$route.path;
   }
 };
 </script>
